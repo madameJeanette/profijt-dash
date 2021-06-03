@@ -7,12 +7,13 @@ import Proof from "./components/Proof"
 import Results from "./components/Results"
 import SingleResult from "./components/SingleResult"
 import ToDo from "./components/ToDo"
-
+import NavBar from "./components/NavBar";
 
 
 function App() {
   return (
     <BrowserRouter>
+    <NavBar />
     <Switch>
       <Route component={Home} path='/' exact/>
       
