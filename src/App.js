@@ -16,7 +16,7 @@ import Results from "./components/Results"
 import SingleResult from "./components/SingleResult"
 import ToDo from "./components/ToDo"
 import NavBar from "./components/NavBar";
-import * as firebase from 'firebase/app'
+
 
 
 function App() {
