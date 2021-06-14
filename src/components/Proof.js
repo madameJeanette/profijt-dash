@@ -1,13 +1,18 @@
+
 import React, { useEffect } from 'react'
 import {fb} from "../base"
-import sad from "../img/sadFace.png"
-import meh from "../img/mehFace.png"
-import happy from "../img/happyFace.png"
-import { useForm } from 'react-hook-form'
+import {formSchema} from "../Validations/FormValidation";
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 const db = fb.firestore();
 
 export default function Proof() {
+  const { register, formState: { errors } } = useForm({
+    resolver: yupResolver(formSchema),
+  });
+
   const [fileUrl, setFileUrl] = React.useState(null)
   const [proof, setProof] = React.useState([]);
 
@@ -21,13 +26,23 @@ const onFileChange = async (e) => {
 
 const onSubmit = async (e) => {
  e.preventDefault()
+ const formData = {
+   file:e.target[0].value,
+   book:e.target[1].value,
+   difficulty: e.target[2].value
+  }
+
+ console.log(formData)
+  const isValid = await formSchema.isValid(formData);
+  console.log(isValid)
 
  const book = e.target.book.value
  const difficulty = e.target.difficulty.value
  console.log(book)
  console.log(difficulty)
 
- if (!book || !fileUrl || !difficulty) {
+ if (!book || !fileUrl || !difficulty ||!isValid) {
+ alert('Niet alle velden zijn ingevuld!')
   return;
 }
    db.collection("proof").doc(book).set({
@@ -36,11 +51,8 @@ const onSubmit = async (e) => {
      difficulty: difficulty,
 
    })
+  alert('Bewijs verzonden!')
 }
-
-//const { register, handleSubmit, formState: { errors }} = useForm();
-// {...register('difficulty', { required: true, minLength:3 })}
-// {...register('difficulty', { required: true, minLength:3 })}
 
 useEffect(() => {
   const fetchProof = async () => {
@@ -54,12 +66,14 @@ useEffect(() => {
   fetchProof();
 }, []);
 
+
   return ( 
    <>
    <form onSubmit={onSubmit}>
-   <input type="file" onChange={onFileChange}/>
+   <input type="file"  onChange={onFileChange}/>
+   {errors.file && <h3>Geen bestand gekozen</h3>}
    <p>Vul een vak in:</p>
-    <select name="book">
+    <select name="book" {...register('book')}>
       <option value="-">-</option>
       <option value="Groen">Groen</option>
       <option value="Logistiek">Logistiek</option>
@@ -67,15 +81,15 @@ useEffect(() => {
       <option value="Nederlands">Nederlands</option>
       <option value="Rekenen">Rekenen</option>
     </select> 
-
+    {errors.book &&<h3>Geen vak ingevuld.</h3>}
     <p>Wat vond je van de opdracht?</p>
-    <select name="difficulty">
+    <select name="difficulty" {...register('difficulty')}>
       <option value="-">-</option>
       <option value="Makkelijk">Makkelijk</option>
       <option value="Normaal">Normaal</option>
       <option value="Moeilijk">Moeilijk</option>
     </select> 
-
+   {errors.difficulty &&<h3>Vul in wat je van de opdracht vond.</h3>}
 
      <button>Verzend</button>
     </form> 
@@ -93,18 +107,4 @@ useEffect(() => {
     </>
   ) 
 
-    // <form onSubmit={handleSubmit(onSubmit)} > 
-
-    //   <input name="file" type="file"  {...register('file', { required: true })}/>
-
-    //    <select {...register('difficulty', { required: true, minLength:3 })}>
-
-    //   {errors.book &&<h3>Vul een vak in.</h3>}
-    //   {errors.file && <h3>Kies een bestand</h3>}
-    //   {errors.difficulty &&<h3>Vul in wat je van de opdracht vond.</h3>}
-    //   <input type="submit" />
-  // )
-  //   </form>
-    
-//)
   }
