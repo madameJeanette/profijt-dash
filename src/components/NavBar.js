@@ -17,25 +17,25 @@ export default function NavBar() {
             to="/todo"
             activeClassName="text-red-100 bg-red-700"
             className= "inflex-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-gray-800">
-            To Do
+           Week planner
           </NavLink>
           <NavLink
            to="/books"
            activeClassName="text-red-100 bg-red-700"
            className= "inflex-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-gray-800">
-           Books
+           Lesmateriaal
           </NavLink>
           <NavLink
            to="/proof"
            activeClassName="text-red-100 bg-red-700"
            className= "inflex-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-gray-800">
-           Proof
+           Bewijs
           </NavLink>
           <NavLink
            to="/results"
            activeClassName="text-red-100 bg-red-700"
            className= "inflex-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-gray-800">
-           Results
+          Resultaten
           </NavLink>  
           <NavLink
            to="/projects"
