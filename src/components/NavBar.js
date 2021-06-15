@@ -36,6 +36,12 @@ export default function NavBar() {
            activeClassName="text-red-100 bg-red-700"
            className= "inflex-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-gray-800">
            Results
+          </NavLink>  
+          <NavLink
+           to="/projects"
+           activeClassName="text-red-100 bg-red-700"
+           className= "inflex-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-gray-800">
+           Portfolio
           </NavLink>
         </nav>
       </div>

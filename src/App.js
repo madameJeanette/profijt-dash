@@ -16,6 +16,7 @@ import Results from "./components/Results"
 import SingleResult from "./components/SingleResult"
 import ToDo from "./components/ToDo"
 import NavBar from "./components/NavBar";
+import Projects from "./components/Projects";
 
 
 
@@ -42,6 +43,7 @@ function App() {
      
       <Route component={SingleResult} path='/results/:slug' />
       <Route component={Results} path='/results' />
+      <Route component={Projects} path='/projects' />
       
      
       <Route component={ToDo} path='/todo' />
