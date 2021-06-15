@@ -9,7 +9,8 @@ export const formSchema = yup.object().shape({
   .test('is-correct-file', 'VALIDATION_FIELD_FILE_BIG', checkIfFilesAreTooBig)
   ,
   book: yup.string().min(4).required('Vak is verplicht'),
-  difficulty:  yup.string().min(4).required('Moeilijkheid invullen is verplicht'),
+  difficulty: yup.string().min(4).required('Moeilijkheid invullen is verplicht'),
+  name: yup.string().min(4),
 })
 
 export function checkIfFilesAreTooBig(files) {

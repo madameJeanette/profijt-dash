@@ -27,9 +27,10 @@ const onFileChange = async (e) => {
 const onSubmit = async (e) => {
  e.preventDefault()
  const formData = {
-   file:e.target[0].value,
-   book:e.target[1].value,
-   difficulty: e.target[2].value
+   name:e.target[0].name.value,
+   file:e.target[1].value,
+   book:e.target[2].value,
+   difficulty: e.target[3].value
   }
 
  console.log(formData)
@@ -38,17 +39,26 @@ const onSubmit = async (e) => {
 
  const book = e.target.book.value
  const difficulty = e.target.difficulty.value
+ const name = e.target.name.value
  console.log(book)
  console.log(difficulty)
+ console.log(name)
 
- if (!book || !fileUrl || !difficulty ||!isValid) {
+
+ if (!book || !fileUrl || !difficulty || !name) {
  alert('Niet alle velden zijn ingevuld!')
   return;
 }
-   db.collection("proof").doc(book).set({
-     book: book,
-     file: fileUrl,
-     difficulty: difficulty,
+
+if (!isValid) {
+  alert('Bestand is te groot')
+   return;
+ }
+   db.collection("proof").doc(name).set({
+    name: name, 
+    book: book,
+    file: fileUrl,
+    difficulty: difficulty,
 
    })
   alert('Bewijs verzonden!')
@@ -70,10 +80,12 @@ useEffect(() => {
   return ( 
    <>
    <form onSubmit={onSubmit}>
+   <p>Naam opdracht:</p>
+   <input name= "name" type="name" />
+
    <input type="file"  onChange={onFileChange}/>
-   {errors.file && <h3>Geen bestand gekozen</h3>}
    <p>Vul een vak in:</p>
-    <select name="book" {...register('book')}>
+    <select name="book">
       <option value="-">-</option>
       <option value="Groen">Groen</option>
       <option value="Logistiek">Logistiek</option>
@@ -81,29 +93,29 @@ useEffect(() => {
       <option value="Nederlands">Nederlands</option>
       <option value="Rekenen">Rekenen</option>
     </select> 
-    {errors.book &&<h3>Geen vak ingevuld.</h3>}
+  
     <p>Wat vond je van de opdracht?</p>
-    <select name="difficulty" {...register('difficulty')}>
+    <select name="difficulty">
       <option value="-">-</option>
       <option value="Makkelijk">Makkelijk</option>
       <option value="Normaal">Normaal</option>
       <option value="Moeilijk">Moeilijk</option>
     </select> 
-   {errors.difficulty &&<h3>Vul in wat je van de opdracht vond.</h3>}
 
      <button>Verzend</button>
     </form> 
-    <ul>
+    {/* <ul>
     {proof.map((item) => {
           return (
-            <li key={item.book}>
+            <li key={item.name}>
               <img width="100" height="100" src={item.file} alt={item.book} />
+              <p>{item.name}</p>
               <p>{item.book}</p>
               <p>{item.difficulty}</p>
             </li>
           );
         })}
-    </ul>
+    </ul> */}
     </>
   ) 
 
