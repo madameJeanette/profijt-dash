@@ -37,7 +37,7 @@ export default{
       options:{
         list: [
           {value: "personal", title: "Personal"},
-          {value: "stage", title: "stage"},
+          {value: "stage", title: "Stage"},
           {value: "school", title: "School"},
         ],
       },

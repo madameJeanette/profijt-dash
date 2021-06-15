@@ -10,7 +10,6 @@ export default function Gr() {
     .fetch(`*[_type == "post"]{
       title,
       slug,
-      category,
       mainImage{
         asset->{
           _id,
@@ -44,7 +43,7 @@ export default function Gr() {
               />
               <span className="block relative h-full flex justify-end items-end pr-4 pb-4">
                 <h3 className="text-gray-800 text-lg font-blog px-3 py-4 bg-red-700 text-red-100 bg-opacity-75 rounded">
-                  {post.title} 
+                  {post.title} {post.categories}
                 </h3>
               </span>
             </span>

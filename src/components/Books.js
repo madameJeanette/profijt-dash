@@ -50,7 +50,7 @@ export default function Books() {
       </div>
     </NavLink>
 
-    <NavLink to="/books/brgr">    
+    <NavLink to="/books/bu">    
 
       <div className="max-w-xs rounded overflow-hidden shadow-lg mx-2 my-2">
        <img className="mx-auto" src={image4} alt="green book"/>
@@ -63,7 +63,7 @@ export default function Books() {
       </div>
     </NavLink>
 
-    <NavLink to="/books/ict">    
+    <NavLink to="/books/ic">    
 
       <div className="max-w-xs rounded overflow-hidden shadow-lg mx-2 my-2">
        <img className="mx-auto" src={image5} alt="purple book"/>
