@@ -7,15 +7,16 @@ export default function Gr() {
 
  useEffect(() => {
    sanityClient
-    .fetch(`*[_type == "post"]{
+    .fetch(`*[_type == "post" && 'groen' in tags]{
       title,
       slug,
+      tags,
       mainImage{
         asset->{
           _id,
-          url
-        },
-        alt
+          url,
+          alt,
+        }
       }
     }`)
     .then((data)=> setPost(data))
@@ -43,7 +44,7 @@ export default function Gr() {
               />
               <span className="block relative h-full flex justify-end items-end pr-4 pb-4">
                 <h3 className="text-gray-800 text-lg font-blog px-3 py-4 bg-red-700 text-red-100 bg-opacity-75 rounded">
-                  {post.title} {post.categories}
+                  {post.title}
                 </h3>
               </span>
             </span>
