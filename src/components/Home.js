@@ -59,17 +59,6 @@ export default function Home() {
               <div className='px-6 py-4'></div>
             </div>
           </NavLink>
-
-          {/* <NavLink to="/projects">    
-
-              <div className="max-w-xs rounded overflow-hidden shadow-lg mx-2 my-2">
-                <div className="px-6 py-4">
-                  <div className="font-bold text-xl mb-2 text-center">Portfolio</div>
-                </div>
-                <div className="px-6 py-4">
-                </div>
-              </div>
-            </NavLink> */}
         </div>
       </section>
     </main>

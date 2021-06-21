@@ -4,9 +4,9 @@
 {"id":3,"subject":"Nederlands","grade":4},
 {"id":4,"subject":"ICT","grade":1},
 {"id":5,"subject":"Logistiek","grade":4},
-{"id":6,"subject":"Handel","grade":3},
-{"id":7,"subject":"Visagie","grade":2},
-{"id":8,"subject":"Spelling+","grade":4},
-{"id":9,"subject":"Engels","grade":1}
+{"id":6,"subject":"Handel","grade":1},
+{"id":7,"subject":"Visagie","grade":1},
+{"id":8,"subject":"Spelling+","grade":5},
+{"id":9,"subject":"Engels","grade":2}
 
 ]

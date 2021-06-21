@@ -2,9 +2,10 @@ import React, { useMemo } from 'react'
 import { useTable, useSortBy, usePagination } from 'react-table'
 import MOCK_DATA from './MOCK_DATA.json'
 import { COLUMNS } from './columns'
-import placeholder1 from '../img/sadFace.png'
-import placeholder2 from '../img/mehFace.png'
-import placeholder3 from '../img/happyFace.png'
+import tinyRoom from '../img/tinyRoom.png'
+import smallRoom from '../img/smallRoom.jpg'
+import mediumRoom from '../img/mediumRoom.png'
+import bigRoom from '../img/bigRoom.png'
 
 export const Results = () => {
   const columns = useMemo(() => COLUMNS, [])
@@ -38,23 +39,39 @@ export const Results = () => {
     const d = []
     for (let i = 0; i < data.length; i++) {
       d.push(data[i].grade)
-      console.log(d)
     }
   }
 
   const imageFix = (d) => {
     console.log(d)
+    return d.grade < 3 ? tinyRoom : d.grade > 3 ? bigRoom : mediumRoom
+  }
+
+  const textFix = (d) => {
+    console.log(d)
     return d.grade < 3
-      ? d.grade + 'laag' + d.subject
+      ? d.subject + ' ' + d.grade
       : d.grade > 3
-      ? d.grade + 'hoog' + d.subject
-      : d.grade + 'neutraal' + d.subject
+      ? d.subject + ' ' + d.grade
+      : d.subject + ' ' + d.grade
   }
 
   dataFix()
 
   return (
     <>
+      <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-1'>
+        {data.map((d) => (
+          <div>
+            <img
+              src={imageFix(d)}
+              className='object-fill w-auto h-64 rounded-r py-2 px-2'
+            />
+            <div className='justify-center'> {textFix(d)}</div>
+          </div>
+        ))}
+      </div>
+
       <table {...getTableProps()} className='table-auto'>
         <thead>
           {headerGroups.map(
@@ -122,9 +139,6 @@ export const Results = () => {
           Next
         </button>
       </div>
-      {data.map((d) => (
-        <div>{imageFix(d)}</div>
-      ))}
     </>
   )
 }
