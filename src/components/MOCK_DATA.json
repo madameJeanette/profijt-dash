@@ -1,12 +1,8 @@
 [
-{"id":1,"subject":"Groen","grade":3},
-{"id":2,"subject":"Rekenen","grade":2},
-{"id":3,"subject":"Nederlands","grade":4},
-{"id":4,"subject":"ICT","grade":1},
-{"id":5,"subject":"Logistiek","grade":4},
-{"id":6,"subject":"Handel","grade":1},
-{"id":7,"subject":"Visagie","grade":1},
-{"id":8,"subject":"Spelling+","grade":5},
-{"id":9,"subject":"Engels","grade":2}
+{"id":1,"subject":"Groen","grade":1},
+{"id":2,"subject":"Rekenen","grade":4},
+{"id":3,"subject":"Nederlands","grade":3},
+{"id":4,"subject":"ICT","grade":2},
+{"id":5,"subject":"Logistiek","grade":5}
 
 ]

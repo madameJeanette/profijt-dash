@@ -50,24 +50,24 @@ export const Results = () => {
   const textFix = (d) => {
     console.log(d)
     return d.grade < 3
-      ? d.subject + ' ' + d.grade
+      ? d.subject + ' ' + d.grade + '⭐'
       : d.grade > 3
-      ? d.subject + ' ' + d.grade
-      : d.subject + ' ' + d.grade
+      ? d.subject + ' ' + d.grade + '⭐'
+      : d.subject + ' ' + d.grade + '⭐'
   }
 
   dataFix()
 
   return (
-    <>
-      <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-1'>
+    <div className='my-2 mx-2 px-2'>
+      <div className='grid md:grid-flow-col'>
         {data.map((d) => (
-          <div>
+          <div className='w-auto py-4 bg-emerald-200 '>
+            <div className='justify-center'> {textFix(d)}</div>
             <img
               src={imageFix(d)}
-              className='object-fill w-auto h-64 rounded-r py-2 px-2'
+              className='object-fill w-auto h-64 rounded-r py-1 rounded'
             />
-            <div className='justify-center'> {textFix(d)}</div>
           </div>
         ))}
       </div>
@@ -139,7 +139,7 @@ export const Results = () => {
           Next
         </button>
       </div>
-    </>
+    </div>
   )
 }
 
