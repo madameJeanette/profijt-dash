@@ -32,7 +32,7 @@ export default function SingleResult() {
 
   return (
     <div>
-      <h1>Vak: xxxx</h1>
+      <h1>Vak: xxx</h1>
       <h1>Gemmiddelde: xxxx</h1>
       <h1>Moeilijkheid: xxxx</h1>
       <ReactMapGL
@@ -70,7 +70,11 @@ export default function SingleResult() {
             }}
           >
             <div className='items-center'>
-              <img src={smiley1} alt='box' className='smileyIcon' />
+              <img
+                src={selectedPark.properties.PICTURE_LINK}
+                alt='box'
+                className='smileyIcon'
+              />
               <h2>{selectedPark.properties.NAME}</h2>
               <p>{selectedPark.properties.DESCRIPTION}</p>
             </div>

@@ -1,5 +1,13 @@
 import React from 'react'
+import Form from './Form'
 
 export default function ToDo() {
-  return <h1>Page for your todo's</h1>
+  return (
+    <div>
+      <header>
+        <h1>To do list</h1>
+      </header>
+      <Form></Form>
+    </div>
+  )
 }
