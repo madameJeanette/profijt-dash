@@ -47,7 +47,7 @@ tr:hover {
 
 }
 button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 4px 32px;
@@ -55,6 +55,19 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+.buttonIcon {
+background-color:none;
+border:none;
+cursor:pointer;
+width:20px;
+height:20px;
+}
+.smileyIcon {
+background-color:none;
+border:none;
+width:40px;
+height:40px;
 }
 
 button:focus {

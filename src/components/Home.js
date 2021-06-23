@@ -15,7 +15,7 @@ export default function Home() {
           Welkom terug!
         </h1>
 
-        <div className='grid grid-cols-4 gap-1 pt-12 lg:pt-164 px-8'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-2 mx-10'>
           <NavLink to='/Todo'>
             <div className='max-w-xs rounded overflow-hidden shadow-lg mx-2 my-2'>
               <div className='px-6 py-4'>

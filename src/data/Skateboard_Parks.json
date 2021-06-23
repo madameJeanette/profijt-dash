@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "Skateboard_Parks",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "PARK_ID": 762, "FACILITYID": 28004, "NAME": "Ik kan schoffelen ",  "DESCRIPTION": "Flat asphalt surface, 5 components",  "PICTURE_LINK": null, "PICTURE_DESCRIPTION": null }, "geometry": { "type": "Point", "coordinates": [51.9226212701451, 4.251799060783642 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "PARK_ID": 2488, "FACILITYID": 35815, "NAME": "Ik kan scheppen", "DESCRIPTION": "Flat concrete surface, 5 components", "PICTURE_LINK": null, "PICTURE_DESCRIPTION": null }, "geometry": { "type": "Point", "coordinates": [ 51.879075, 4.432449 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "PARK_ID": 2544, "FACILITYID": 35667, "NAME": "Ik kan harken", "DESCRIPTION": "Flat concrete surface, 10 plus components", "PICTURE_LINK": null, "PICTURE_DESCRIPTION": null }, "geometry": { "type": "Point", "coordinates": [ 51.893399, 4.505062 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 8, "PARK_ID": 52, "FACILITYID": 35120, "NAME": "Ik kan verschillende gieters gebruiken", "DESCRIPTION": "Flat asphalt surface", "DESCRIPTION_FR": "Survace d'asphalte plane", "PICTURE_LINK": null, "PICTURE_DESCRIPTION": null}, "geometry": { "type": "Point", "coordinates": [ 51.87433871838726, 4.6068674159855485 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 9, "PARK_ID": 137, "FACILITYID": 28019, "NAME": "Ik kan een graafmachine bedienen", "DESCRIPTION": "Flat asphalt surface, 5 components","PICTURE_LINK": null, "PICTURE_DESCRIPTION": null }, "geometry": { "type": "Point", "coordinates": [ 51.81787573570993, 4.680511221790116 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 10, "PARK_ID": 923, "FACILITYID": 28013, "NAME": "Ik kan wilgen knotten", "DESCRIPTION": "Flat surface, 5 components","PICTURE_LINK": null, "PICTURE_DESCRIPTION": null}, "geometry": { "type": "Point", "coordinates": [ 51.91329339343555, 4.36160724129712 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 11, "PARK_ID": 989, "FACILITYID": 28017, "NAME": "Ik kan bomen om hakken", "DESCRIPTION": "Flat asphalt surface, 6 components",  "PICTURE_LINK": null, "PICTURE_DESCRIPTION": null }, "geometry": { "type": "Point", "coordinates": [ 51.93317821055798, 4.445678286036353] } },
+{ "type": "Feature", "properties": { "OBJECTID": 12, "PARK_ID": 1717, "FACILITYID": 28018, "NAME": "Ik kan een zaag veilig gebruiken", "DESCRIPTION": "Flat asphalt surface, 5 components",  "PICTURE_LINK": null, "PICTURE_DESCRIPTION": null}, "geometry": { "type": "Point", "coordinates": [ 52.01863038225649, 4.707239463157169 ] } }
+]
+}

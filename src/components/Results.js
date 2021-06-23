@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react'
 import { useTable, useSortBy, usePagination } from 'react-table'
-import MOCK_DATA from './MOCK_DATA.json'
+import MOCK_DATA from '../data/MOCK_DATA.json'
 import { COLUMNS } from './columns'
 import tinyRoom from '../img/tinyRoom.png'
-import smallRoom from '../img/smallRoom.jpg'
 import mediumRoom from '../img/mediumRoom.png'
 import bigRoom from '../img/bigRoom.png'
 
@@ -63,7 +62,10 @@ export const Results = () => {
       <div className='grid md:grid-flow-col'>
         {data.map((d) => (
           <div className='w-auto py-4 bg-emerald-200 '>
-            <div className='justify-center'> {textFix(d)}</div>
+            <div className='text-xl lg:text-2xl mb-2 text-center'>
+              {' '}
+              {textFix(d)}
+            </div>
             <img
               src={imageFix(d)}
               className='object-fill w-auto h-64 rounded-r py-1 rounded'
@@ -115,7 +117,7 @@ export const Results = () => {
           })}
         </tbody>
       </table>
-      <div>
+      <div className='px-2 py-2'>
         <span>
           Page{' '}
           <strong>
@@ -132,7 +134,11 @@ export const Results = () => {
             </option>
           ))}
         </select>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+        <button
+          className='mx-1 my-1'
+          onClick={() => previousPage()}
+          disabled={!canPreviousPage}
+        >
           Previous
         </button>
         <button onClick={() => nextPage()} disabled={!canNextPage}>
