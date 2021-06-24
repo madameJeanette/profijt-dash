@@ -46,7 +46,7 @@ tr:hover {
   color:white;
 
 }
-button {
+.button {
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -66,8 +66,8 @@ height:20px;
 .smileyIcon {
 background-color:none;
 border:none;
-width:40px;
-height:40px;
+width:auto;
+height:100px;
 }
 
 button:focus {

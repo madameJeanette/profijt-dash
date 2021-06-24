@@ -96,9 +96,9 @@ export default function Proof() {
         <p>Wat vond je van de opdracht?</p>
         <select className='shadow-lg' name='difficulty'>
           <option value='-'>-</option>
-          <option value='Makkelijk'>Makkelijk</option>
-          <option value='Normaal'>Normaal</option>
-          <option value='Moeilijk'>Moeilijk</option>
+          <option value='Makkelijk'>😃 Makkelijk </option>
+          <option value='Normaal'>😐 Normaal</option>
+          <option value='Moeilijk'>☹️ Moeilijk</option>
         </select>
 
         <button className='m-2'>Verzend</button>
