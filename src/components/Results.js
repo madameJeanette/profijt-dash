@@ -42,12 +42,10 @@ export const Results = () => {
   }
 
   const imageFix = (d) => {
-    console.log(d)
     return d.grade < 3 ? tinyRoom : d.grade > 3 ? bigRoom : mediumRoom
   }
 
   const textFix = (d) => {
-    console.log(d)
     return d.grade < 3
       ? d.subject + ' ' + d.grade + '⭐'
       : d.grade > 3
@@ -59,7 +57,7 @@ export const Results = () => {
 
   return (
     <div className='my-2 mx-2 px-2'>
-      <div className='grid md:grid-flow-col'>
+      <div className='grid md:grid-flow-col gap-1'>
         {data.map((d) => (
           <div className='w-auto py-4 bg-emerald-200 '>
             <div className='text-xl lg:text-2xl mb-2 text-center'>
@@ -68,7 +66,7 @@ export const Results = () => {
             </div>
             <img
               src={imageFix(d)}
-              className='object-fill w-auto h-64 rounded-r py-1 rounded'
+              className='object-fill w-auto h-64 rounded-r rounded'
             />
           </div>
         ))}
@@ -135,13 +133,17 @@ export const Results = () => {
           ))}
         </select>
         <button
-          className='mx-1 my-1'
+          className='button mx-1 my-1'
           onClick={() => previousPage()}
           disabled={!canPreviousPage}
         >
           Previous
         </button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        <button
+          className='button'
+          onClick={() => nextPage()}
+          disabled={!canNextPage}
+        >
           Next
         </button>
       </div>

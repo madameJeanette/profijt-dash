@@ -5,7 +5,7 @@ function Form() {
     <div>
       <form>
         <input type='text' class='todo-input' />
-        <button class='todo-button' type='submit'>
+        <button type='submit'>
           <i class='fas fa-plus-square'></i>
         </button>
         <div class='select'>
