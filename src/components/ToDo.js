@@ -45,10 +45,10 @@ export default function ToDo() {
     }
   }
   return (
-    <div>
-      <header>
-        <h1>Mijn weekplan</h1>
-      </header>
+    <div className='min-h-screen p-12'>
+      <h1 className='text-4xl text-gray-800 font-bold leading-none lg:leading-snug m-2 p-2 text-center'>
+        Mijn weekplan
+      </h1>
       <Form
         inputText={inputText}
         todos={todos}

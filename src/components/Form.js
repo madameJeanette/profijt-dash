@@ -23,16 +23,21 @@ function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
         value={inputText}
         onChange={inputTextHandler}
         type='text'
-        className='todo-input'
+        className='shadow-lg m-2 p-4'
+        placeholder=' Taak '
       />
       <button onClick={submitTodoHandler} type='submit'>
         <i className='fas fa-plus-square'></i>
       </button>
-      <div className='select'>
-        <select onChange={statusHandler} name='todos' className='filter-todo'>
-          <option value='all'>All</option>
-          <option value='completed'>Completed</option>
-          <option value='uncompleted'>Uncompleted</option>
+      <div className='select '>
+        <select
+          onChange={statusHandler}
+          name='todos'
+          className='shadow-lg m-2 p-4'
+        >
+          <option value='all'>Alles</option>
+          <option value='completed'>Klaar</option>
+          <option value='uncompleted'>Nog te doen</option>
         </select>
       </div>
     </form>
