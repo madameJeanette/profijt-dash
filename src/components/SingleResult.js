@@ -19,13 +19,14 @@ export default function SingleResult() {
     zoom: 10,
   })
   const [selectedPark, setSelectedPark] = useState(null)
-  const [selectedImg, setSelectedImg] = useState(null)
+
+  let matchingDoc = null
+  let flip = null
 
   useEffect(() => {
     const listener = (e) => {
       if (e.key === 'Escape') {
         setSelectedPark(null)
-        setSelectedImg(null)
       }
     }
     window.addEventListener('keydown', listener)
@@ -35,37 +36,29 @@ export default function SingleResult() {
     }
   }, [])
 
-  function loopDoc(selectedImg) {
-    if (selectedImg) {
-      for (let i = 0; i < selectedImg.length; i++) {
-        i++
-        console.log(i)
-        return (
-          <div>
-            <h2>Vak: {selectedImg[i].book}</h2>
-            <img
-              className='smileyIcon'
-              src={selectedImg[i].file}
-              alt='uploaded pic'
-            />
-            <h3>Opdracht: {selectedImg[i].name}</h3>
-            <h3>Moeilijkheid: {selectedImg[i].difficulty}</h3>
-          </div>
+  function matching() {
+    if (selectedPark) {
+      if (selectedPark.properties.PARK_ID < docs.length + 1) {
+        matchingDoc = docs.find(
+          (doc) => doc.name === selectedPark.properties.DESCRIPTION
         )
+        console.log(selectedPark)
+        console.log(matchingDoc)
       }
     }
-    return
   }
-  // loopDoc(selectedImg)
+  matching()
+  function buttonFlip(park) {
+    flip = docs.find((doc) => doc.name === park.properties.DESCRIPTION)
+  }
+
   return (
     <div>
-      <h1 className='flex items-center pl-2 text-2xl'>
-        Vak: {data[0].subject}{' '}
-      </h1>
-      <h1 className='flex items-center pl-2 text-2xl'>
-        Gemmiddelde: {data[0].grade}{' '}
-      </h1>
-
+      <div className=' pl-2 text-2xl'>
+        <h1 className='text-center p-4 m-4 text-2xl'>
+          {data[0].subject} | {data[0].grade}⭐ | {data[0].level}{' '}
+        </h1>
+      </div>
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={REACT_APP_MAPBOX_ACCESS_TOKEN}
@@ -74,62 +67,69 @@ export default function SingleResult() {
           setViewPort(viewport)
         }}
       >
-        {parkDate.features.map((park) =>
-          docs.map((doc) => (
-            <Marker
-              key1={park.properties.PARK_ID}
-              name={doc.name}
-              latitude={park.geometry.coordinates[0]}
-              longitude={park.geometry.coordinates[1]}
+        {parkDate.features.map((park) => (
+          <Marker
+            key={park.properties.PARK_ID}
+            latitude={park.geometry.coordinates[0]}
+            longitude={park.geometry.coordinates[1]}
+          >
+            <button
+              className='bg-transparent'
+              onClick={(e) => {
+                e.preventDefault()
+                setSelectedPark(park)
+              }}
             >
-              <button
-                className='bg-transparent'
-                onClick={(e) => {
-                  e.preventDefault()
-                  setSelectedPark(park)
-                  setSelectedImg(docs)
-                }}
-              >
+              {' '}
+              {buttonFlip(park)}
+              {flip !== undefined ? (
                 <img src={boxDone} alt='point' className='buttonIcon' />
-              </button>
-            </Marker>
-          ))
-        )}
+              ) : (
+                <img src={box} alt='point' className='buttonIcon' />
+              )}
+            </button>
+          </Marker>
+        ))}
 
         {selectedPark ? (
           <Popup
             latitude={selectedPark.geometry.coordinates[0]}
             longitude={selectedPark.geometry.coordinates[1]}
-            name={selectedImg[0].name}
             onClose={() => {
               setSelectedPark(null)
-              setSelectedImg(null)
             }}
           >
-            {/* <div>
-              <img
-                src={selectedPark.properties.PICTURE_LINK}
-                alt='box'
-                className='smileyIcon'
-              />
-              <h2>{selectedPark.properties.NAME}</h2>
-            </div> */}
+            {matchingDoc !== null && matchingDoc !== undefined ? (
+              <div>
+                <p>
+                  ✔️ <strong>Leerdoel</strong>: {selectedPark.properties.NAME}
+                </p>
 
-            {loopDoc(selectedImg)}
+                <img
+                  className='smileyIcon'
+                  src={matchingDoc.file}
+                  alt='uploaded pic'
+                />
+                <h2>
+                  <strong>Opdracht:</strong> {matchingDoc.name}{' '}
+                </h2>
+                <h3>{matchingDoc.difficulty}</h3>
+              </div>
+            ) : (
+              <div>
+                <p>
+                  <strong>Leerdoel</strong>: {selectedPark.properties.NAME}
+                </p>
+                <img
+                  src={selectedPark.properties.PICTURE_LINK}
+                  alt='asignment picture'
+                  className='smileyIcon'
+                />
+              </div>
+            )}
           </Popup>
         ) : null}
       </ReactMapGL>
     </div>
   )
-}
-
-{
-  /* <div className='img-grid'>
-{docs &&
-  docs.map((doc) => (
-    <div className='img-wrap' key={doc.name}>
-      <img src={doc.file} alt='uploaded pic' />
-    </div>
-  ))}
-</div> */
 }
