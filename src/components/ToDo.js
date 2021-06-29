@@ -45,8 +45,8 @@ export default function ToDo() {
     }
   }
   return (
-    <div className='min-h-screen p-12'>
-      <h1 className='text-4xl text-gray-800 font-bold leading-none lg:leading-snug m-2 p-2 text-center'>
+    <div className='min-h-screen p-12  grid justify-items-center'>
+      <h1 className='text-4xl text-gray-800 font-bold leading-none lg:leading-snug m-2 p-2'>
         Mijn weekplan
       </h1>
       <Form
