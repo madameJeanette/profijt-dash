@@ -42,9 +42,6 @@ export default function Proof() {
     const book = e.target.book.value
     const difficulty = e.target.difficulty.value
     const name = e.target.name.value
-    console.log(book)
-    console.log(difficulty)
-    console.log(name)
 
     if (!book || !fileUrl || !difficulty || !name) {
       alert('Niet alle velden zijn ingevuld!')
@@ -55,7 +52,7 @@ export default function Proof() {
       alert('Bestand is te groot')
       return
     }
-    db.collection('proof').doc(name).set({
+    db.collection('proof').doc().set({
       name: name,
       book: book,
       file: fileUrl,
@@ -81,7 +78,6 @@ export default function Proof() {
       <form onSubmit={onSubmit}>
         <p>Naam opdracht: </p>
         <input className='shadow-lg' name='name' type='name' />
-
         <input className='m-2' type='file' onChange={onFileChange} />
         <p>Vul een vak in: </p>
         <select className='shadow-lg' name='book'>
@@ -96,9 +92,9 @@ export default function Proof() {
         <p>Wat vond je van de opdracht?</p>
         <select className='shadow-lg' name='difficulty'>
           <option value='-'>-</option>
-          <option value='Makkelijk'>😃 Makkelijk </option>
-          <option value='Normaal'>😐 Normaal</option>
-          <option value='Moeilijk'>☹️ Moeilijk</option>
+          <option value='😃 makkelijk'>😃 Makkelijk </option>
+          <option value='😐 normaal'>😐 Normaal</option>
+          <option value='☹️ moeilijk'>☹️ Moeilijk</option>
         </select>
 
         <button className='m-2'>Verzend</button>
