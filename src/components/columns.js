@@ -1,23 +1,27 @@
 export const COLUMNS = [
-
   {
     Header: 'Id',
     Footer: 'Id',
-    accessor: 'id'
-  },  
+    accessor: 'id',
+  },
   {
     Header: 'Vak',
     Footer: 'Vak',
-    accessor:'subject'
-  },  
+    accessor: 'subject',
+  },
   {
     Header: 'Resultaat',
     Footer: 'Resultaat',
-    accessor: 'grade'
+    accessor: 'grade',
+  },
+  {
+    Header: 'Level',
+
+    accessor: 'level',
   },
 
   // {
-  //   Header: 'Image',
+  //   Header: 'Level',
   //   accessor: 'imageUrl',
   //   maxWidth: 70,
   //   minWidth: 70,
@@ -26,27 +30,24 @@ export const COLUMNS = [
 
 export const GROUPED_COLUMNS = [
   {
-    
-      Header: 'Id',
-      Footer: 'Id',
-      accessor: 'id'
-      
+    Header: 'Id',
+    Footer: 'Id',
+    accessor: 'id',
   },
   {
-     Header: 'Vak',
-     Footer: 'Vak',
-     columns: [
+    Header: 'Vak',
+    Footer: 'Vak',
+    columns: [
       {
         Header: 'Vak',
         Footer: 'Vak',
-        accessor:'subject'
-      },  
+        accessor: 'subject',
+      },
       {
         Header: 'Resultaat',
         Footer: 'Resultaat',
-        accessor: 'grade'
+        accessor: 'grade',
       },
     ],
-     
   },
 ]

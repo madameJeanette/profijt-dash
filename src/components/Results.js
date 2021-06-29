@@ -57,21 +57,6 @@ export const Results = () => {
 
   return (
     <div className='my-2 mx-2 px-2'>
-      <div className='grid md:grid-flow-col gap-1'>
-        {data.map((d) => (
-          <div className='w-auto py-4 bg-emerald-200 '>
-            <div className='text-xl lg:text-2xl mb-2 text-center'>
-              {' '}
-              {textFix(d)}
-            </div>
-            <img
-              src={imageFix(d)}
-              className='object-fill w-auto h-64 rounded-r rounded'
-            />
-          </div>
-        ))}
-      </div>
-
       <table {...getTableProps()} className='table-auto'>
         <thead>
           {headerGroups.map(
@@ -146,6 +131,20 @@ export const Results = () => {
         >
           Next
         </button>
+      </div>
+      <div className='flex flex-wrap-reverse  '>
+        {data.map((d) => (
+          <div className='p-2 m-1 bg-green-100'>
+            <div className='text-xl lg:text-2xl mb-2 text-center'>
+              {' '}
+              {textFix(d)}
+            </div>
+            <img
+              src={imageFix(d)}
+              className='object-fill h-64 w-auto rounded-r rounded'
+            />
+          </div>
+        ))}
       </div>
     </div>
   )
