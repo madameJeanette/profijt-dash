@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function NavBar({ toggle, isOpen }) {
   return (
-    <header className='bg-red-600 p-4'>
+    <header className='bg-red-600 p-4 '>
       <div
         className={isOpen ? 'hidden' : 'px-4 cursor-pointer'}
         onClick={toggle}
@@ -23,21 +23,23 @@ export default function NavBar({ toggle, isOpen }) {
           />
         </svg>
       </div>
-      <div className={isOpen ? 'px-4 cursor-pointer' : 'hidden'}>
-        <nav className='flex '>
+      <div
+        className={isOpen ? ' px-4 cursor-pointer ' : 'hidden'}
+        onClick={toggle}
+      >
+        <nav className='flex flex-col md:flex-row'>
           <NavLink
             to='/'
             exact
             activeClassName='text-white'
-            className='inflex-flex items-center py-6 px-3 mr-4 text-red-100 hover:text-gray-800 text-4xl font-bold tracking-widest'
-            onClick={toggle}
+            className='sm: text-xl md: inflex-flex items-center py-6 px-3 mr-4 text-red-100 hover:text-gray-800 text-4xl font-bold tracking-widest'
           >
             Home
           </NavLink>
           <NavLink
             to='/todo'
-            activeClassName='text-red-100 bg-red-700'
-            className='inflex-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-gray-800'
+            activeClassName='text-red-100 bg-red-700 '
+            className='md:inflex-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-gray-800'
           >
             Weekplanner
           </NavLink>

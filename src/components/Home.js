@@ -13,14 +13,13 @@ export default function Home() {
       <img
         src={image}
         alt='colorfull mountains'
-        className='absolute object-cover w-full h-full'
+        className='flex-shrink md:absolute object-cover w-full h-full'
       />
       <section className='relative flex justify-left min-h-screen  pt-12 lg:pt-164 px-8'>
-        <h1 className='text-4xl text-gray-800 font-bold leading-none lg:leading-snug '>
-          Welkom terug!
-        </h1>
-
-        <div className='grid md:grid-cols-2 lg:grid-cols-5 gap-2 mx-10'>
+        <div className='grid md:grid-cols-1 lg:grid-cols-6 gap-2 mx-10'>
+          <h1 className='text-4xl text-gray-800 font-bold leading-none lg:leading-snug m-2 '>
+            Welkom terug!
+          </h1>
           <NavLink to='/Todo'>
             <div className='max-w-xs rounded overflow-hidden shadow-lg mx-2 my-2'>
               <div className='px-6 py-4'>
