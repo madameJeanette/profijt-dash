@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function NavBar() {
+export default function NavBar({ toggle, isOpen }) {
   return (
-    <header className='bg-red-600'>
-      <div className='container mx-auto flex justify-between'>
-        <nav className='flex'>
+    <header className='bg-red-600 p-4'>
+      <div
+        className={isOpen ? 'hidden' : 'px-4 cursor-pointer'}
+        onClick={toggle}
+      >
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          className='h-6 w-6'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='white'
+        >
+          <path
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M4 6h16M4 12h16M4 18h16'
+          />
+        </svg>
+      </div>
+      <div className={isOpen ? 'px-4 cursor-pointer' : 'hidden'}>
+        <nav className='flex '>
           <NavLink
             to='/'
             exact
             activeClassName='text-white'
             className='inflex-flex items-center py-6 px-3 mr-4 text-red-100 hover:text-gray-800 text-4xl font-bold tracking-widest'
+            onClick={toggle}
           >
             Home
           </NavLink>

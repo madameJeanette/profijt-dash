@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './components/Home'
 import SinglePost from './components/SinglePost'
@@ -15,9 +16,16 @@ import NavBar from './components/NavBar'
 import Projects from './components/Projects'
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar toggle={toggle} isOpen={isOpen} />
+
       <Switch>
         <Route component={Home} path='/' exact />
         <Route component={SinglePost} path='/post/:slug' />
