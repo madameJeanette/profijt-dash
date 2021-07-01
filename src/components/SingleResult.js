@@ -38,7 +38,7 @@ export default function SingleResult() {
 
   function matching() {
     if (selectedPark) {
-      if (selectedPark.properties.PARK_ID < docs.length + 1) {
+      if (selectedPark.properties.PARK_ID < docs.length) {
         matchingDoc = docs.find(
           (doc) => doc.name === selectedPark.properties.DESCRIPTION
         )

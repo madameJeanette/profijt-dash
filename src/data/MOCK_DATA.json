@@ -1,5 +1,5 @@
 [
-{"id":1,"subject":"Groen","grade":1, "level": "☹️ Moeilijk"},
+{"id":1,"subject":"Groen","grade":4, "level": "☹️ Moeilijk"},
 {"id":2,"subject":"Rekenen","grade":4, "level": "😃 Makkelijk"},
 {"id":3,"subject":"Nederlands","grade":3, "level": "😃 Makkelijk"},
 {"id":4,"subject":"ICT","grade":2,"level": "😐 Normaal"},
