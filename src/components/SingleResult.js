@@ -40,21 +40,25 @@ export default function SingleResult() {
     if (selectedPark) {
       if (selectedPark.properties.PARK_ID < docs.length) {
         matchingDoc = docs.find(
-          (doc) => doc.name === selectedPark.properties.DESCRIPTION
+          (doc) => doc.goal === selectedPark.properties.NAME
         )
-        console.log(selectedPark)
-        console.log(matchingDoc)
       }
     }
   }
   matching()
   function buttonFlip(park) {
-    flip = docs.find((doc) => doc.name === park.properties.DESCRIPTION)
+    flip = docs.find((doc) => doc.goal === park.properties.NAME)
   }
 
   return (
     <div>
       <div className=' pl-2 text-2xl'>
+        <select className='shadow-lg' name='goal'>
+          {data.map((dat) => (
+            <option value={dat.subject}>{dat.subject}</option>
+          ))}
+        </select>
+
         <h1 className='text-center p-4 m-4 text-2xl'>
           {data[0].subject} | {data[0].grade}⭐ | {data[0].level}{' '}
         </h1>
@@ -80,7 +84,6 @@ export default function SingleResult() {
                 setSelectedPark(park)
               }}
             >
-              {' '}
               {buttonFlip(park)}
               {flip !== undefined ? (
                 <img src={boxDone} alt='point' className='buttonIcon' />
@@ -102,7 +105,7 @@ export default function SingleResult() {
             {matchingDoc !== null && matchingDoc !== undefined ? (
               <div>
                 <p>
-                  ✔️ <strong>Leerdoel</strong>: {selectedPark.properties.NAME}
+                  ✔️ <strong>Leerdoel: </strong> {selectedPark.properties.NAME}
                 </p>
 
                 <img
@@ -111,7 +114,8 @@ export default function SingleResult() {
                   alt='uploaded pic'
                 />
                 <h2>
-                  <strong>Opdracht:</strong> {matchingDoc.name}{' '}
+                  <strong>Opdracht: </strong>
+                  {matchingDoc.name}
                 </h2>
                 <h3>{matchingDoc.difficulty}</h3>
               </div>
