@@ -23,16 +23,14 @@ export default function NavBar({ toggle, isOpen }) {
           />
         </svg>
       </div>
-      <div
-        className={isOpen ? ' px-4 cursor-pointer ' : 'hidden'}
-        onClick={toggle}
-      >
+      <div className={isOpen ? ' px-4 cursor-pointer ' : 'hidden'}>
         <nav className='flex flex-col md:flex-row'>
           <NavLink
             to='/'
             exact
             activeClassName='text-white'
             className='sm: text-xl md: inflex-flex items-center py-6 px-3 mr-4 text-red-100 hover:text-gray-800 text-4xl font-bold tracking-widest'
+            onClick={toggle}
           >
             Home
           </NavLink>
